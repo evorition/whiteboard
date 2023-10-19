@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Stage, Layer, Line } from "react-konva";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:3000");
+const socket = io();
 
 const App = () => {
     const STAGE_WIDTH = 1920;

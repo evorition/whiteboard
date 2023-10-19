@@ -4,11 +4,7 @@ const { Server } = require("socket.io");
 
 const app = express();
 const server = createServer(app);
-const io = new Server(server, {
-    cors: {
-        origin: "*",
-    },
-});
+const io = new Server(server);
 const PORT = process.env.PORT || 3000;
 
 const drawingLines = [];
@@ -33,7 +29,7 @@ io.on("connection", (socket) => {
     });
 });
 
-// app.use("*", express.static(__dirname + "/dist"));
+app.use(express.static(__dirname + "/dist"));
 
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
